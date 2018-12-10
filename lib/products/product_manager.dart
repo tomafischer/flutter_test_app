@@ -12,7 +12,7 @@ class ProductMangerScaffolding extends StatelessWidget {
             title: Text("Tom's easy List"),
           ),
           body: ProductManager(
-            startingProduct: "Tom's favorite food",
+           // startingProduct: "Tom's favorite food",
           )),
       theme: ThemeData(primarySwatch: Colors.lime),
     );
@@ -35,7 +35,9 @@ class _ProductManagerState extends State<ProductManager> {
   @override
   void initState() {
     super.initState();
-    _products.add(widget.startingProduct);
+    if(widget.startingProduct != null){
+      _products.add(widget.startingProduct);
+    }
   }
 
   void _addProduct(String product) {
@@ -47,10 +49,15 @@ class _ProductManagerState extends State<ProductManager> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      Container(
-          margin: EdgeInsets.all(10.0), child: ProductControl(_addProduct)),
-      Products(_products)
-    ]);
+    return Column(
+      children: [
+        Container(
+            margin: EdgeInsets.all(10.0), child: ProductControl(_addProduct)),
+        Expanded(
+            child: Products(
+              _products,
+            ))
+      ],
+    );
   }
 }
