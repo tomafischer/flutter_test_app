@@ -1,24 +1,45 @@
 import 'package:flutter/material.dart';
+import './pages/product.dart';
 
 class Products extends StatelessWidget {
-  final List<String> products;
+  final List<Map<String, String>> products;
   Products([this.products = const []]);
 
   Widget _buildProductItem(BuildContext context, int index) {
     return Card(
-      child: Column(
-          children: [Image.asset('assets/food.jpg'), Text(products[index])]),
+      child: Column(children: [
+        Image.asset(products[index]['image']),
+        Text(products[index]['title']),
+        ButtonBar(
+          children: <Widget>[
+            FlatButton(
+              child: Text('Details'),
+              onPressed: () {
+                print('Clicked Details');
+                //Navigation to the details page
+                Navigator.of(context).push(MaterialPageRoute(builder:
+                  (context) => ProductPage(products[index]['title'], products[index]['image'])
+                ));
+                
+              },
+            ),
+          ],
+        )
+      ]),
     );
   }
 
-  Widget _buildProductList(){
+  Widget _buildProductList() {
     Widget productCard;
-    if(products.length >0 ){
-      productCard =  ListView.builder(
-        itemCount: products.length, 
-        itemBuilder: _buildProductItem,);
+    if (products.length > 0) {
+      productCard = ListView.builder(
+        itemCount: products.length,
+        itemBuilder: _buildProductItem,
+      );
     } else {
-      productCard = Center(child: Text('No products found'),);
+      productCard = Center(
+        child: Text('No products found'),
+      );
     }
     return productCard;
   }

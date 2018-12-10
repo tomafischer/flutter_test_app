@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import './countup.dart';
 import './endlessList.dart';
-import './products/product_manager.dart';
-import './gridDemo.dart';
+import './products/pages/products_homePage.dart';
+//import './gridDemo.dart';
 import 'package:flutter/rendering.dart';
 main() {
   //Flutter: Toggle Debug painting
@@ -16,8 +16,8 @@ class MyApp extends StatelessWidget {
     print('[MyApp] build');
     //return EndlessListScaffolding();
     //return CountUpScaffolding();
-    return GridDemo();
-    //return ProductMangerScaffolding();
+    //return GridDemo();
+    return ProductMangerHomePage();
   }
 }
 

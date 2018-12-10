@@ -2,25 +2,9 @@ import 'package:flutter/material.dart';
 import './products.dart';
 import './product_control.dart';
 
-class ProductMangerScaffolding extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Products List",
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text("Tom's easy List"),
-          ),
-          body: ProductManager(
-           // startingProduct: "Tom's favorite food",
-          )),
-      theme: ThemeData(primarySwatch: Colors.lime),
-    );
-  }
-}
 
 class ProductManager extends StatefulWidget {
-  final String startingProduct;
+  final Map startingProduct;
   ProductManager({this.startingProduct});
 
   @override
@@ -30,7 +14,7 @@ class ProductManager extends StatefulWidget {
 }
 
 class _ProductManagerState extends State<ProductManager> {
-  List<String> _products = [];
+  List<Map<String,String>> _products = [];
 
   @override
   void initState() {
@@ -40,7 +24,7 @@ class _ProductManagerState extends State<ProductManager> {
     }
   }
 
-  void _addProduct(String product) {
+  void _addProduct(Map<String,String> product) {
     setState(() {
       _products.add(product);
       print(_products);
