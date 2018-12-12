@@ -40,8 +40,15 @@ class _ProductManagerState extends State<ProductManager> {
         Expanded(
             child: Products(
               _products,
+              deleteProduct: _deleteProduct,
             ))
       ],
     );
+  }
+
+  void _deleteProduct(int index){
+    setState(() {
+          _products.removeAt(index);
+        });
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import './countup.dart';
 import './endlessList.dart';
-import './products/pages/products_homePage.dart';
+import './products/pages/start.dart';
 //import './gridDemo.dart';
 import 'package:flutter/rendering.dart';
 main() {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     //return EndlessListScaffolding();
     //return CountUpScaffolding();
     //return GridDemo();
-    return ProductMangerHomePage();
+    return ProductsStartPage();
   }
 }
 
