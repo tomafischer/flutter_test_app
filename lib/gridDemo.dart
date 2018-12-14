@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class GridDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return MaterialApp(
       title: "Grid List",
       home: Scaffold(
